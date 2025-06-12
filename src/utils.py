@@ -1,16 +1,26 @@
+import seaborn as sns
+tab20b_hex_colors = sns.color_palette('tab20b', n_colors=20).as_hex()
+
 PALETA_ATARDECER_GRIETA = {
-    # Colores principales / de base (para categorías neutras/positivas o fondos)
-    'gris_azulado_suave': '#6B7A8F',  # Muy bueno para fondos claros o elementos secundarios
-    'beige_claro': '#DCC7AA',        # Tono cálido, para barras o líneas
-    'verde_grisaceo': '#C3C9BC',     # Otro tono suave para elementos neutros
+    # Colores principales / de base 
+    'azul_suave': tab20b_hex_colors[0],         
+    'ocre_claro': tab20b_hex_colors[1],         
+    'verde_oliva_suave': tab20b_hex_colors[2],  
+    
+    # Colores de acento 
+    'naranja_ambar': tab20b_hex_colors[3],     
+    'terracota': tab20b_hex_colors[4],        
 
-    # Color de acento (para categorías levemente tóxicas o para destacar)
-    'naranja_quemado': '#ECA400',    # Atrae la atención sin ser agresivo
+    # Colores de advertencia / grave 
+    'rojo_profundo': tab20b_hex_colors[13],
+    'purpura_oscuro': tab20b_hex_colors[6],  
 
-    # Color de advertencia / grave (para categorías ofensivas/graves)
-    'rojo_ladrillo_intenso': '#CC2936', # Ideal para alertar o mostrar la toxicidad alta
+    # Colores adicionales para expandir 
+    'crema_brillante': tab20b_hex_colors[7], 
+    'azul_verdoso': tab20b_hex_colors[8],     
+    'marrón_suave': tab20b_hex_colors[9],       
 
-    # Colores de texto y fondo (para usar en Streamlit o gráficos)
-    'fondo_claro': '#F7F7F7',        # Un blanco roto, muy agradable
-    'texto_oscuro': '#333333'        # Un gris oscuro para el texto principal
+    # Colores de texto y fondo 
+    'fondo_claro': '#F7F7F7',                   
+    'texto_oscuro': '#333333'                    
 }
