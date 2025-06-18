@@ -1,0 +1,11 @@
+[theme]
+base="light"
+primaryColor="#4a90e2"         # Azul profesional
+backgroundColor="#f8f9fa"      # Fondo claro elegante
+secondaryBackgroundColor="#ffffff"
+textColor="#262730"            # Texto oscuro suave
+font="sans serif"              # Fuente limpia
+
+[server]
+headless = true
+runOnSave = true
