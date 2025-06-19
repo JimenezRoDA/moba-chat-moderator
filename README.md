@@ -110,7 +110,7 @@ Hemos desarrollado una aplicación web interactiva utilizando **Streamlit** que 
 
 Hemos preparado una presentación detallada para explicar el funcionamiento, la problemática y las consideraciones clave detrás de nuestro Moderador de Chat Inteligente. ¡Descubre cómo la IA puede transformar las comunidades online!
 
-[![Visita la presentación en Prezi](https://img.shields.io/badge/Prezi-Ver%20Presentaci%C3%B3n-blue?style=for-the-badge&logo=prezi)]([ENLACE_A_TU_PRESENTACION_PREZI])
+[![Visita la presentación en Prezi](https://img.shields.io/badge/Prezi-Ver%20Presentaci%C3%B3n-blue?style=for-the-badge&logo=prezi)](https://prezi.com/view/QNpmIlJ4cWOItZ1t90Re/)
 
 ---
 
