@@ -102,7 +102,7 @@ Hemos desarrollado una aplicación web interactiva utilizando **Streamlit** que 
 - **Umbrales Personalizables para Empresas:** Ajusta fácilmente los límites de toxicidad para ver cómo las reglas de moderación impactan la experiencia del usuario, demostrando la flexibilidad de la herramienta para adaptarse a las políticas de cada plataforma.
 - **Herramienta de Análisis CSV:** Sube tu propio archivo de comentarios (`.csv`) y obtén una clasificación instantánea de la toxicidad de cada mensaje, ideal para auditorías de contenido o análisis de grandes volúmenes de datos.
 
-👉 [Prueba la app online aquí]([ENLACE_A_TU_APP_STREAMLIT])
+👉 [Prueba la app online aquí](https://moba-chat-moderator-gcnvlaagvoqyzxjker459w.streamlit.app/)
 
 ---
 
