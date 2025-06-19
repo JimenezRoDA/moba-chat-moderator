@@ -102,7 +102,7 @@ Hemos desarrollado una aplicación web interactiva utilizando **Streamlit** que 
 - **Umbrales Personalizables para Empresas:** Ajusta fácilmente los límites de toxicidad para ver cómo las reglas de moderación impactan la experiencia del usuario, demostrando la flexibilidad de la herramienta para adaptarse a las políticas de cada plataforma.
 - **Herramienta de Análisis CSV:** Sube tu propio archivo de comentarios (`.csv`) y obtén una clasificación instantánea de la toxicidad de cada mensaje, ideal para auditorías de contenido o análisis de grandes volúmenes de datos.
 
-👉 [Prueba la app online aquí]([ENLACE_A_TU_APP_STREAMLIT])
+👉 [Prueba la app online aquí](https://moba-chat-moderator-gcnvlaagvoqyzxjker459w.streamlit.app/)
 
 ---
 
@@ -114,16 +114,11 @@ Hemos preparado una presentación detallada para explicar el funcionamiento, la 
 
 ---
 
-## 🔮 Futuro y Próximos Pasos
-
-Este proyecto es un punto de partida sólido. Mirando hacia el futuro, se pueden explorar mejoras y nuevas funcionalidades:
-
-- **Arquitectura de Integración (APIs):** Desplegar el modelo como un **microservicio (API REST)** (utilizando frameworks como Flask o FastAPI) para permitir una **moderación en tiempo real** donde cada mensaje pasa por la IA antes de ser publicado en el chat.
-- **IA Conversacional para Intervención Proactiva:**
-    - **Feedback Personalizado:** Una IA que interactúe directamente con el usuario tóxico, ofreciendo retroalimentación constructiva ("Lo que has dicho es ofensivo. Por favor, modera tu lenguaje.").
-    - **Filtrado Activo con Reescritura (IA de "Traducción de Toxicidad"):** Un sistema innovador donde la IA detecta la toxicidad y, antes de que el mensaje sea visible, lo reescribe para que sea constructivo. Por ejemplo, "me cago en tu ... no sabes jugar tendrias que hacer esto manco" podría transformarse en "Podrías intentar esto en su lugar. Me estoy frustrando con el juego.", manteniendo la intención del usuario pero eliminando la toxicidad.
-
-La evolución hacia sistemas de IA más contextuales, proactivos y adaptativos es el camino para construir comunidades digitales verdaderamente seguras y acogedoras.
+## Próximos pasos
+- 📊 Ampliar el dataset: Incluir más ejemplos variados de toxicidad permitirá mejorar la precisión del modelo y adaptarse a diferentes formas de comunicación.
+- 🌍 Multilingüismo: Adaptar el modelo para detectar toxicidad en otros idiomas, no solo en inglés, ampliando su utilidad a nivel global.
+- 🧪 Pruebas en entornos reales: Aplicar el sistema con supervisión humana en plataformas reales para identificar errores, ajustar el modelo y alimentarlo con nuevos casos.
+- 🧰 APIs modulares: Desarrollar APIs robustas y plug-and-play que faciliten su integración por parte de terceros (empresas, desarrolladores, plataformas).
 
 ---
 
