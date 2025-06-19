@@ -10,7 +10,6 @@ import time
 import random
 
 # --- Configuración inicial de la página de Streamlit ---
-# Esta debe ser la PRIMERA llamada a st. en todo el script, después de los imports.
 st.set_page_config(
     page_title="Moderador de Chat IA",
     layout="centered",
@@ -58,7 +57,7 @@ def load_resources_cached(model_path_cached, base_model_name_for_tokenizer_cache
 tokenizer, model, device = load_resources_cached(FINETUNED_MODEL_PATH, BASE_MODEL_NAME_FOR_TOKENIZER, num_classes)
 
 if model is None or tokenizer is None:
-    st.stop() # Detiene la ejecución de la app si el modelo no se pudo cargar
+    st.stop() 
 
 # --- Inicialización de variables de estado de Streamlit ---
 # Todas las variables de sesión deben inicializarse para evitar errores.
@@ -70,7 +69,7 @@ if 'leve_count' not in st.session_state:
     st.session_state.leve_count = 0
 if 'is_banned' not in st.session_state:
     st.session_state.is_banned = False
-if 'chat_input' not in st.session_state: # Para el widget de texto del chat
+if 'chat_input' not in st.session_state: 
     st.session_state.chat_input = ""
 
 # Umbrales configurables por la empresa para la Demostración Interactiva
@@ -109,7 +108,6 @@ def get_prediction(text, tokenizer, model, device, id_to_label):
 def reset_demo():
     st.session_state.grave_count = 0
     st.session_state.leve_count = 0
-    # Aseguramos que también se resetean los contadores de aliados/enemigos
     st.session_state.grave_count_ally = 0
     st.session_state.leve_count_ally = 0
     st.session_state.grave_count_enemy = 0
@@ -182,7 +180,6 @@ tab_intro, tab_demo, tab_csv, tab_performance, tab_conclusions = st.tabs([
 with tab_intro:
     st.markdown(logo(), unsafe_allow_html=True)
 
-    # Imagen decorativa (moderna y sin warnings)
     st.image(
         "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80",
         caption="Moderación con IA en comunidades digitales",
@@ -329,11 +326,8 @@ with tab_demo:
         st.metric("Enemigo - tóxicos leves", st.session_state.leve_count_enemy)
 
     # --- Lógica de baneo y chat ---
-    # La visualización del historial de chat se mueve aquí, antes del input,
-    # para que siempre sea visible, incluso si el usuario está baneado.
     st.markdown("### Historial del Chat:")
-    # Mostrar el chat histórico (en orden cronológico si se prefiere)
-    # Si quieres el más nuevo arriba, usa reversed(st.session_state.chat_history)
+    # 
     for bubble in st.session_state.chat_history:
         st.markdown(bubble, unsafe_allow_html=True)
 
@@ -341,16 +335,16 @@ with tab_demo:
         st.markdown(create_bubble("🚫 ¡HAS SIDO BLOQUEADO DEL CHAT! 🚫 Excediste los límites de toxicidad.", "🛑 Sistema", "ban"), unsafe_allow_html=True)
         if st.button("Desbloquear (Reiniciar Demo)", key="unban_button"):
             reset_demo()
-            # st.experimental_rerun() # No es necesario aquí
+         
 
     else:
         # --- Función Callback para el envío de mensaje ---
         def send_message_and_update_demo():
-            user_message = st.session_state.chat_input # Accede al valor del input con su key
+            user_message = st.session_state.chat_input 
 
             if not user_message: # Si el mensaje está vacío
                 st.warning("Por favor, escribe un mensaje.")
-                return # Salir de la función si no hay mensaje
+                return 
 
             # Realizar predicción: ¡Aquí es donde se usa el modelo!
             predicted_label, probabilities, predicted_id = get_prediction(user_message, tokenizer, model, device, id_to_label)
@@ -389,7 +383,7 @@ with tab_demo:
                 st.session_state.chat_history.append(bubble)
 
             # --- Mensajes aleatorios de Aliado/Enemigo ---
-            def ally_message_generator(): # Renombrado para evitar conflicto con la función ally_message() anterior
+            def ally_message_generator():
                 options = [
                     # No toxic
                     ("wp", "no_toxic"),
@@ -420,9 +414,9 @@ with tab_demo:
                     st.session_state.grave_count_ally += 1
                 elif msg_type == "leve":
                     st.session_state.leve_count_ally += 1
-                return create_bubble(text, "🟢 Aliado", "ally") # Usar "ally" para el tipo de burbuja
+                return create_bubble(text, "🟢 Aliado", "ally") 
 
-            def enemy_message_generator(): # Renombrado
+            def enemy_message_generator():
                 options = [
                     # No toxic
                     ("You're not bad... for a beginner.", "no_toxic"),
@@ -455,24 +449,19 @@ with tab_demo:
                     st.session_state.leve_count_enemy += 1
                 return create_bubble(text, "🔴 Enemigo", "enemy") # Usar "enemy" para el tipo de burbuja
 
-            # Añadir mensajes de IA al historial
+ 
             st.session_state.chat_history.append(ally_message_generator())
             st.session_state.chat_history.append(enemy_message_generator())
 
-            # Vaciar el input de texto después de todo el procesamiento
             st.session_state.chat_input = ""
-            # No necesitas st.experimental_rerun() aquí, on_click maneja el refresco.
 
 
-        # El campo de entrada de texto
-        # Ya no usamos on_change para limpiar, se limpia dentro del callback
+
         st.text_input("Escribe tu mensaje aquí:", key="chat_input")
 
-        # El botón que activa la función callback para enviar y procesar el mensaje
         st.button("Enviar mensaje", on_click=send_message_and_update_demo, key="send_message_button_demo")
 
-    # Mover la visualización del historial de chat arriba para que siempre sea visible
-    # st.markdown("### Historial del Chat:") # Ya lo puse arriba
+
 
 with tab_csv:
     st.title("🛠️ Herramienta de Análisis de Toxicidad por Lotes")
@@ -493,18 +482,18 @@ with tab_csv:
             st.success("Archivo CSV cargado exitosamente.")
             st.dataframe(df_upload.head())
 
-            # Permite al usuario seleccionar la columna si no es obvio
+       
             column_to_analyze = st.selectbox(
                 "Selecciona la columna que contiene los comentarios:",
                 df_upload.columns,
-                key="csv_column_selector" # Añadido key
+                key="csv_column_selector" 
             )
 
-            if st.button("Analizar Comentarios", key="analyze_csv_button"): # Añadido key
+            if st.button("Analizar Comentarios", key="analyze_csv_button"): 
                 if model is not None and tokenizer is not None:
                     with st.spinner("Analizando comentarios... Esto puede tardar unos minutos para archivos grandes."):
                         predictions = []
-                        # Asegurarse de que los comentarios son strings y manejar NaN/vacíos
+                    
                         for comment in df_upload[column_to_analyze].astype(str).fillna(''):
                             predicted_label, _, _ = get_prediction(comment, tokenizer, model, device, id_to_label)
                             predictions.append(predicted_label)
@@ -540,8 +529,7 @@ with tab_performance:
     forma sencilla, qué tan bien funciona y dónde brilla más.
     """)
 
-    # --- DATOS DE RENDIMIENTO HARDCODEADOS DIRECTAMENTE EN EL CÓDIGO ---
-    # Estos son los datos que antes se cargaban del JSON. Ahora están aquí.
+
     hardcoded_report_data = {
         "Acción/Juego": {"precision": 0.739, "recall": 0.845, "f1-score": 0.788, "support": "N/A"}, # 'support' es el número de ejemplos
         "Gravemente Tóxico": {"precision": 0.872, "recall": 0.886, "f1-score": 0.879, "support": "N/A"},
@@ -552,11 +540,9 @@ with tab_performance:
         "weighted avg": {"precision": 0.9175, "recall": 0.9174, "f1-score": 0.9175, "support": "N/A"}
     }
 
-    # Creamos el DataFrame directamente desde los datos hardcodeados
     report_df = pd.DataFrame(hardcoded_report_data).transpose()
 
-    # Redondeamos las columnas numéricas para una mejor visualización
-    # y manejamos el caso de 'accuracy' que no es un diccionario
+
     for col in ['precision', 'recall', 'f1-score']:
         if col in report_df.columns:
             report_df[col] = pd.to_numeric(report_df[col], errors='coerce').round(3)
