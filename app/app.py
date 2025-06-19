@@ -138,6 +138,36 @@ def create_bubble(message, sender="tú", msg_type="normal"):
     </div>
     """
 
+def logo():
+    return """
+    <div style='
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        text-align: center;
+        padding: 20px 0;
+        user-select: none;
+    '>
+        <h1 style='
+            font-size: 56px;
+            font-weight: 900;
+            color: #4a90e2;
+            margin: 0;
+            letter-spacing: 3px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+        '>
+            <span style='color:#262730;'>Moderador</span> <span style='color:#4a90e2;'>Inteligente</span> <span style='color:#262730;'>de Chat</span>
+        </h1>
+        <p style='
+            margin-top: 6px;
+            font-size: 18px;
+            color: #666666;
+            font-weight: 500;
+            letter-spacing: 1px;
+        '>
+            Tu Aliado en la Moderación Online
+        </p>
+    </div>
+    """
+
 # --- NAVEGACIÓN CON PESTAÑAS (TABS) ---
 tab_intro, tab_demo, tab_csv, tab_performance, tab_conclusions = st.tabs([
     "1. Introducción",
@@ -150,49 +180,82 @@ tab_intro, tab_demo, tab_csv, tab_performance, tab_conclusions = st.tabs([
 # --- Contenido de las Páginas ---
 
 with tab_intro:
-    st.title("🛡️ Moderador de Chat Inteligente")
-    st.subheader("Tu Aliado en la Moderación Online")
+    st.markdown(logo(), unsafe_allow_html=True)
+
+    # Imagen decorativa (moderna y sin warnings)
+    st.image(
+        "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=800&q=80",
+        caption="Moderación con IA en comunidades digitales",
+        use_container_width=True
+    )
+
     st.markdown("---")
 
+    # Sección: ¿Por qué un Moderador de Chat con IA?
     with st.container():
         st.header("🎯 ¿Por qué un Moderador de Chat con IA?")
+
+        st.subheader("🚨 Un problema creciente")
         st.markdown("""
         La toxicidad en los entornos online, especialmente en videojuegos multijugador, se ha convertido en un problema creciente que afecta tanto a los usuarios como a las plataformas que los albergan.
+        """)
 
-        Según recientes investigaciones, más del **80%** de los jugadores han experimentado algún tipo de acoso en juegos en línea. De estos, un **68%** ha recibido amenazas físicas, acecho o acoso sostenido, mientras que el **53%** ha sido víctima de ataques basados en raza, género, orientación sexual u otros aspectos personales.
+        st.subheader("📊 Datos alarmantes")
+        st.markdown("""
+        - Más del **80%** de los jugadores han experimentado algún tipo de acoso en juegos en línea.  
+        - Un **68%** ha recibido amenazas físicas, acecho o acoso sostenido.  
+        - El **53%** ha sido víctima de ataques basados en **raza**, **género**, **orientación sexual** u otros aspectos personales.
+        """)
 
-        Este tipo de comportamiento no solo deteriora la experiencia del usuario, sino que también genera consecuencias serias a nivel social, incluyendo aislamiento, ansiedad e incluso pensamientos depresivos en los afectados.
+        st.subheader("🧠 Consecuencias reales")
+        st.markdown("""
+        Este tipo de comportamiento no solo **deteriora la experiencia del usuario**, sino que también genera consecuencias serias a nivel social:
 
-        En este contexto, un Moderador de Chat Inteligente basado en IA no solo es una herramienta para detectar y filtrar mensajes tóxicos, sino una solución clave para proteger a las comunidades digitales y garantizar un entorno seguro y saludable para todos.
+        - **Aislamiento**  
+        - **Ansiedad**  
+        - **Pensamientos depresivos**
+        """)
+
+        st.subheader("🤖 Una solución inteligente")
+        st.markdown("""
+        Un **Moderador de Chat Inteligente** basado en IA no solo detecta y filtra mensajes tóxicos, sino que también:
+
+        - **Protege** a las comunidades digitales.  
+        - **Garantiza** un entorno seguro y saludable para todos.
         """)
 
     st.markdown("---")
 
+    # Sección: ¿Por qué esto importa a las empresas?
     with st.container():
         st.header("🏢 ¿Por qué esto importa a las empresas?")
+
+        st.subheader("💬 La toxicidad va más allá de los videojuegos")
         st.markdown("""
-        La toxicidad online no se limita a los videojuegos. Plataformas con interacción constante — foros, redes sociales, e-commerce o servicios de atención al cliente — enfrentan el desafío de mantener ambientes positivos y seguros.
+        Plataformas con interacción constante — como **foros**, **redes sociales**, **e-commerce** o **servicios de atención al cliente** — también enfrentan este reto.
+        """)
 
-        Incorporar un moderador de chat con IA ofrece múltiples ventajas comerciales:
-
-        - **Mejora la experiencia del usuario**: Los entornos saludables incrementan la satisfacción, retención y engagement.
-        - **Protección de la marca**: Evita que contenidos dañinos o polémicos afecten la reputación de la empresa.
-        - **Escalabilidad y eficiencia**: La IA modera grandes volúmenes de mensajes en tiempo real, sin fatiga ni sesgos.
-        - **Reducción de costos operativos**: Disminuye la dependencia de equipos humanos para tareas repetitivas.
-        - **Análisis y prevención**: Detecta patrones de comportamiento tóxico para anticipar y mitigar problemas futuros.
+        st.subheader("💼 Ventajas comerciales de usar IA")
+        st.markdown("""
+        - ✅ **Mejora la experiencia del usuario**: Los entornos saludables incrementan la satisfacción, retención y *engagement*.  
+        - 🛡️ **Protección de la marca**: Evita que contenidos dañinos afecten la reputación empresarial.  
+        - ⚡ **Escalabilidad y eficiencia**: Modera grandes volúmenes en tiempo real, sin fatiga ni sesgos.  
+        - 💸 **Reducción de costos**: Disminuye la necesidad de equipos humanos para tareas repetitivas.  
+        - 🔍 **Análisis y prevención**: Detecta patrones tóxicos para anticiparse a futuros problemas.
         """)
 
     st.markdown("---")
 
+    # Sección: Fuentes y estudios relevantes
     with st.container():
         st.subheader("📚 Fuentes y estudios relevantes")
         with st.expander("🔎 Consulta las investigaciones que respaldan estos datos"):
             st.markdown("""
             - 📈 *El Telégrafo (2024)* reporta que el acoso en juegos online aumentó un **74%** en el último año. Más del **80%** de jugadores han sufrido acoso, y el **68%** recibió amenazas físicas, acecho o acoso sostenido.  
-            [Ver artículo](https://www.eltelegrafo.com.ec/noticias/sociedad/6/acoso-juegos-online-aumento-ultimo-ano)
+              [Ver artículo](https://www.eltelegrafo.com.ec/noticias/sociedad/6/acoso-juegos-online-aumento-ultimo-ano)
 
             - 📊 *Pew Research Center (2021)* señala que el **41%** de los adultos en EE.UU. ha sido acosado online, un problema transversal en múltiples plataformas.  
-            [Ver estudio](https://www.pewresearch.org/internet/2021/01/13/the-state-of-online-harassment/)
+              [Ver estudio](https://www.pewresearch.org/internet/2021/01/13/the-state-of-online-harassment/)
             """)
 
 with tab_demo:
@@ -225,15 +288,24 @@ with tab_demo:
     st.title("🤖 Demo Interactivo: Moderador de Chat")
     st.markdown("---")
 
-    st.header("🤔 ¿Cómo funciona este demo?")
+    st.header("🤔 ¿Cómo funciona esta demo?")
     st.markdown(f"""
-    1.  **Escribe un mensaje** en la caja de texto.
-    2.  Haz clic en **\"Enviar mensaje\"** o presiona `Enter`.
-    3.  El moderador clasificará el mensaje en una de las **{num_classes} categorías** ({', '.join(id_to_label.values())}).
-    4.  Si se detecta toxicidad, verás una **advertencia**.
-    5.  Los mensajes se acumulan como **'Tóxicos Graves'** y **'Tóxicos Leves'**. Si superas los umbrales configurados en la barra lateral (actualmente **{st.session_state.max_graves} tóxicos graves** y **{st.session_state.max_leves} tóxicos leves**, o **{st.session_state.ban_threshold_graves} tóxicos graves** o **{st.session_state.ban_threshold_total_toxic} mensajes tóxicos totales** para ban), se bloqueará el chat.
-    6.  Usa el botón **\"Reiniciar Demo\"** en la barra lateral para empezar de nuevo.
+    Esta es una **simulación de chat moderado por IA**. Puedes enviar mensajes y ver cómo el sistema los clasifica y actúa en consecuencia.
+
+    1. ✏️ **Escribe un mensaje** en la caja de texto inferior.
+    2. 📤 Haz clic en **"Enviar mensaje"** o presiona `Enter`.
+    3. 🤖 El mensaje será clasificado por el modelo en una de las **{num_classes} categorías**: {', '.join(id_to_label.values())}.
+    4. ⚠️ Si el mensaje se detecta como **tóxico**, aparecerá una advertencia y se contará en los indicadores superiores.
+    5. 🚫 Si superas ciertos **umbrales de toxicidad** (configurables en la barra lateral), serás **bloqueado** del chat.
+    6. 📊 En los contadores superiores se muestra tanto tu comportamiento como el de los personajes simulados (aliado y enemigo).
+    7. 🔄 Usa el botón **"Reiniciar Demo"** para empezar de nuevo cuando lo necesites.
     """)
+
+    st.info("""
+    🗨️ Para simular una conversación real, el sistema genera automáticamente **mensajes aleatorios** de un **aliado** y un **enemigo** tras cada mensaje tuyo.  
+    ❗ **Importante**: estos mensajes **no responden directamente a tus mensajes**, son generados aleatoriamente. Este sistema no es un bot de conversación, sino una inteligencia artificial que clasifica mensajes de chat según su tono.
+    """)
+
 
     st.markdown("---")
 
@@ -319,11 +391,30 @@ with tab_demo:
             # --- Mensajes aleatorios de Aliado/Enemigo ---
             def ally_message_generator(): # Renombrado para evitar conflicto con la función ally_message() anterior
                 options = [
-                    ("¡Buen trabajo en la línea!", "no_toxic"),
-                    ("¡Reagrupémonos en mid!", "action"),
-                    ("Cuidado con el jungla enemigo...", "leve"),
-                    ("¡Necesito ayuda, me están aplastando!", "grave"),
-                ]
+                    # No toxic
+                    ("wp", "no_toxic"),
+                    ("Gj, team!", "no_toxic"),
+                    ("You're doing great!", "no_toxic"),
+                    ("gg", "no_toxic"),
+    
+                    # Action/gameplay
+                    ("Push mid!", "action"),
+                    ("Group up!", "action"),
+                    ("Defend the tower!", "action"),
+                    ("Fall back!", "action"),
+    
+                    # Mild toxicity
+                    ("Why are you feeding?", "leve"),
+                    ("Do something, please.", "leve"),
+                    ("You're making it harder for everyone.", "leve"),
+                    ("Wake up, this is ranked!", "leve"),
+
+                    # Severe toxicity
+                    ("You're completely useless.", "grave"),
+                    ("Uninstall the game.", "grave"),
+                    ("STUPID", "grave"),
+                    ("We're losing because you DUMB.", "grave")
+]
                 text, msg_type = random.choice(options)
                 if msg_type == "grave":
                     st.session_state.grave_count_ally += 1
@@ -333,11 +424,30 @@ with tab_demo:
 
             def enemy_message_generator(): # Renombrado
                 options = [
-                    ("¿Qué haces, inútil?", "leve"),
-                    ("Te voy a aplastar", "grave"),
-                    ("Vamos a ganar esta partida.", "no_toxic"),
-                    ("Cállate y farmea.", "action"),
-                ]
+                    # No toxic
+                    ("You're not bad... for a beginner.", "no_toxic"),
+                    ("GG so far.", "no_toxic"),
+                    ("You're lucky this time.", "no_toxic"),
+                    ("gl hf", "no_toxic"),
+
+                    # Action/gameplay
+                    ("I'm pushing top.", "action"),
+                    ("Don't let them take it!", "action"),
+                    ("We need to end this now.", "action"),
+                    ("Farm and group mid.", "action"),
+
+                    # Mild toxicity
+                    ("surrender already, boring game", "leve"),
+                    ("EZ, learn how to play", "leve"),
+                    ("You play like a bot.", "leve"),
+                    ("You're the reason your team is losing.", "leve"),
+
+                    # Severe toxicity
+                    ("You're absolute garbage.", "grave"),
+                    ("Go cry, bitch.", "grave"),
+                    ("Did you forget how to play? are you a girl? ", "grave"),
+                    ("You're the worst player I've seen, and thats sad", "grave")
+]
                 text, msg_type = random.choice(options)
                 if msg_type == "grave":
                     st.session_state.grave_count_enemy += 1
@@ -519,16 +629,41 @@ with tab_conclusions:
     st.title("🔮 Conclusiones y Próximos Pasos: El Futuro de la Moderación")
     st.markdown("---")
 
-    st.header("Explorando el Horizonte de la Moderación Inteligente")
+    # Conclusión general
+    st.header("🌐 Explorando el Horizonte de la Moderación Inteligente")
     st.write("""
-    Este moderador de chat es un componente fundamental para una estrategia de moderación de contenido robusta.
-    Mirando hacia el futuro, se pueden explorar varias vías de mejora e integración:
+    Este moderador de chat basado en inteligencia artificial representa un componente clave dentro de una estrategia moderna de gestión de comunidades digitales. Aunque su versión actual ya es funcional, el potencial de evolución es amplio y prometedor.
     """)
-    st.markdown("""
-    * **Arquitectura de Integración (APIs):** El modelo entrenado puede ser desplegado como un **microservicio** al que las plataformas de chat se conectarían a través de una API REST (por ejemplo, con Flask, FastAPI). Esto permite una **moderación en tiempo real** donde cada mensaje enviado pasa por la IA antes de ser visible.
-    * **IA Conversacional para Intervención:** Imagina una IA que no solo detecta, sino que también interviene.
-        * **Feedback Personalizado:** "Lo que has dicho es ofensivo. Por favor, modera tu lenguaje."
-        * **Filtrado Activo con Reescritura (IA de Traducción de Toxicidad):** Esto es un concepto innovador. Un usuario escribe: "*me cago en tu ... no sabes jugar tendrias que hacer esto manco*". El sistema detecta la toxicidad y, antes de que el mensaje sea enviado al chat público, lo reescribe a algo como: "*Podrías intentar esto en su lugar. Me estoy frustrando con el juego.*" Esto permite a los usuarios expresar sus emociones, pero asegura que el mensaje que llega al chat sea constructivo y no tóxico, manteniendo un flujo de comunicación positivo. Es un filtro proactivo que "traduce" la toxicidad en constructividad.
 
-    Este proyecto representa un punto de partida poderoso. La evolución hacia sistemas de IA más contextuales y proactivos es el camino hacia comunidades digitales verdaderamente seguras y acogedoras.
+    # Integraciones e innovación futura
+    st.subheader("🚀 Futuras líneas de desarrollo")
+    st.markdown("""
+    - **🔗 Integración mediante APIs:** El modelo puede desplegarse como un **microservicio** conectado a través de una **API REST** (por ejemplo, con Flask o FastAPI), permitiendo una moderación en tiempo real directamente en plataformas de chat.
+
+    - **🧠 IA Conversacional para intervención directa:** Una IA capaz no solo de detectar, sino también de **intervenir de forma educativa**. Por ejemplo:
+        - *"Lo que has dicho es ofensivo. Por favor, modera tu lenguaje."*
+        - O incluso una **reescritura inteligente** del mensaje. Por ejemplo:
+            > Usuario escribe: "*me cago en tu ... no sabes jugar tendrías que hacer esto manco*"  
+            > La IA reescribe: "*Podrías intentar esto en su lugar. Me estoy frustrando con el juego.*"  
+            Esto transforma un mensaje tóxico en uno constructivo, sin cortar la comunicación.
+
+    - **🧩 Moderación contextual:** Evolucionar el sistema para que no evalúe solo mensajes individuales, sino **el contexto completo de la conversación**, permitiendo distinguir mejor entre toxicidad real y humor, sarcasmo o lenguaje habitual dentro de un juego o comunidad.
+    """)
+
+    # Próximos pasos concretos
+    st.subheader("📈 Próximos pasos")
+    st.markdown("""
+    - **📊 Ampliar el dataset:** Incluir más ejemplos variados de toxicidad permitirá mejorar la precisión del modelo y adaptarse a diferentes formas de comunicación.
+    - **🌍 Multilingüismo:** Adaptar el modelo para detectar toxicidad en **otros idiomas**, no solo en inglés, ampliando su utilidad a nivel global.
+    - **🧪 Pruebas en entornos reales:** Aplicar el sistema con **supervisión humana** en plataformas reales para identificar errores, ajustar el modelo y alimentarlo con nuevos casos.
+    - **🧰 APIs modulares:** Desarrollar APIs **robustas y plug-and-play** que faciliten su integración por parte de terceros (empresas, desarrolladores, plataformas).
+
+    """)
+
+    # Reflexión final
+    st.subheader("💡 Reflexión final")
+    st.markdown("""
+    La **inteligencia artificial** puede y debe ser una **aliada clave** en la construcción de comunidades digitales **más seguras, inclusivas y saludables**.
+
+    Este sistema **no busca reemplazar a los moderadores humanos**, sino **asistirlos y potenciar su labor**. Con más datos, validación continua y desarrollo responsable, podemos acercarnos cada vez más a una **moderación automática efectiva y ética**.
     """)

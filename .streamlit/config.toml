@@ -1,0 +1,11 @@
+[theme]
+base = "light"
+primaryColor = "#4a90e2"             # Azul profesional, para controles activos
+backgroundColor = "#f8f9fa"          # Fondo general claro suave
+secondaryBackgroundColor = "#ffffff" # Fondo para secciones blancas
+textColor = "#262730"                # Texto oscuro suave para buena legibilidad
+font = "sans serif"
+
+[server]
+headless = true
+runOnSave = true
